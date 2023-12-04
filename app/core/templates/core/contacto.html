@@ -1,0 +1,41 @@
+{% extends "core/base.html" %}
+
+{% block title%}
+Contacto
+{% endblock %}
+
+{% block content %}
+
+{% load static %}
+
+<script src="{% static 'core/js/scripts/contacto.js' %}"></script>
+<link rel="stylesheet", href="{% static 'core/css/contacto.css' %}">
+
+<main>
+    <dialog id="dialog">
+        <div id="dialogDiv">                
+            <p>Muchas gracias por enviarnos sus comentarios. <br> A la brevedad nos pondremos en contacto con usted :)</p>
+        </div>
+        <button id="btnClose">
+            Cerrar
+            <i class="fas fa-window-close"></i>
+        </button>
+    </dialog>  
+    <div class="neon-border" id="formSection">
+        <h1 id="formTitle">Contacto</h2>
+        <p id="formComment">Envianos tus sugerencias</p>
+        <form id="formContacto">
+            <input type="text" name="nombre" id="name" placeholder="nombre">
+            <br>
+            <input type="text" name="email" id="email" placeholder="email">
+            <br>
+            <textarea name="mensaje" id="message" cols="50" rows="10" placeholder="Deja tu mensaje"></textarea>
+            <br>                
+            <input id="submitButton" type="submit" value="Enviar">
+        </form>
+        <p id="errorMessage">
+        </p>
+    </div>
+</main>
+
+{% endblock %}

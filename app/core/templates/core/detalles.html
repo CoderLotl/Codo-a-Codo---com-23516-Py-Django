@@ -1,0 +1,69 @@
+{% extends "core/base.html" %}
+
+{% block title%}
+Detalles
+{% endblock %}
+
+{% block search %}
+
+<div id="searchInputContainer">
+    <input id="searchInput" type="text" placeholder="Buscar...">
+    <button id="searchButton"></button>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'core/css/itemsBase.css' %}" />
+<link rel="stylesheet" href="{% static 'core/css/itemsDetails.css' %}" />
+<script type="module" src="{% static 'core/js/scripts/itemsDetails.js' %}"></script>
+
+<dialog id="dialog">
+    <div id="dialogDiv">
+        <p>DISCULPE LAS MOLESTIAS</p>
+        <p>Esta funcionalidad aun no se encuentra disponible :)</p>
+    </div>
+    <button id="btnClose">
+        Cerrar
+        <i class="fas fa-window-close"></i>
+    </button>
+</dialog>
+<div id="container">
+    <div id="frame">
+        <div id="item">
+            <img id="gamePicture" src="{% static 'core/images/placeholder.png' %}" alt="A picture of the chosen game" />
+            <span id="brief">
+                <div id="briefContent">
+                    <h1 id="gameTitle">ITEM</h1>
+                    <h2 id="gamePrice">Precio</h2>
+                    <div id="gameDetails">
+                        <div>
+                            <h3 id="detailsTitle">Lo que tenés que saber de este producto</h3>
+                        </div>
+                        <div id="detailsUL">
+                            <li id="console"></li>
+                            <li id="type"></li>
+                            <li id="age"></li>
+                        </div>
+                    </div>
+                </div>
+            </span>
+            <span id="itemControl">
+                <div id="itemControlContent">
+                    <div id="stockData">
+
+                    </div>
+                    <button id="buyItem">COMPRAR</button>
+                </div>
+            </span>
+        </div>
+        <div id="details">
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

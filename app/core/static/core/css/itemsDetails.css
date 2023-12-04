@@ -1,0 +1,383 @@
+@font-face {
+    font-family: "Raleway";
+    src: url('../fonts/Raleway/static/Raleway-Regular.ttf');
+}
+
+.main-nav
+{
+    display: flex;
+    flex-direction: column;
+    align-items: start;        
+}
+
+#sub-nav
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+#nav-panel
+{
+    justify-content: right;
+}
+
+#searchInputContainer
+{
+    width: 400px;
+}
+
+#searchInput
+{
+    width: 90%;
+}
+
+#item
+{
+    border-style: unset;
+    border-radius: 10px;
+    height: 500px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+#gamePicture
+{    
+    width: 300px;
+}
+
+#details
+{
+    height: 700px;
+    border-style: unset;
+    border-radius: 10px;
+    background-color: #e2e2e2;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+#brief
+{
+    width: 350px;
+    height: 470px;
+    background-color: #ffffff;
+    margin-left: 30px;
+    border-style: solid;
+    border-color: rgb(73, 73, 73);
+    border-width: 1px;
+}
+
+#gameDetails
+{
+    padding-left: 30px;
+}
+
+#brief
+{
+    border: unset;
+}
+
+#briefContent
+{
+    padding-left: 15px;
+    border-style: unset;    
+}
+
+#briefContent div
+{
+    border: unset;
+}
+
+#itemControl
+{
+    width: 300px;
+    height: 470px;    
+    background-color: rgb(139, 139, 139);
+    padding-top: 15px;
+    margin-right: 30px;
+    margin-left: 15px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+#itemControlContent
+{
+    border: unset;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#stockData
+{
+    height: 100px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+#buyItem
+{
+    margin-top: 10px;
+    font-size: 24px;
+    padding: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    border-width: 0px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    transition: 250ms;
+    -webkit-transition: 250ms;
+    -moz-transition: 250ms;
+    -ms-transition: 250ms;
+    -o-transition: 250ms;
+    background-color: rgb(0, 83, 179);
+}
+
+#buyItem:hover
+{
+    background-color: rgb(0, 162, 255);
+}
+
+#gameTitle
+{    
+    font-size: 26px;
+    color: #333333;
+}
+
+#detailsTitle
+{
+    font-size: 14px;
+    font-weight: unset;
+}
+
+#gameDetails
+{
+    margin: 0px;
+}
+
+#gamePrice
+{
+    color: #767676;
+    font-size: 30px;
+    font-weight: unset;
+}
+
+#details
+{
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 50px;
+}
+
+#gameDescription
+{
+    font-size: 18px;
+    font-weight: unset;
+}
+
+#videoFrame
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+
+#gameVideo
+{
+    width: 672px;
+    height: 378px;
+}
+
+#dialog
+{    
+    flex-direction: column;
+    align-items: center;
+    border: 0px;
+    border-radius: 40px;
+    background-color: rgb(126, 76, 172);
+    width: 60vw;
+    height: 30vh;
+    position: fixed;
+    top: 20%;
+    z-index: 999;
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    -ms-border-radius: 40px;
+    -o-border-radius: 40px;    
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+}
+
+@keyframes animatetop
+{
+    from {top: -300px}
+    to {top: 20%}
+}
+
+#dialogDiv
+{
+    font-family: "Raleway";
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #e2e2e2;
+    border-radius: 200px;
+    text-align: center;
+    border: 0px;
+    width: 90%;
+    height: 90%;
+    -webkit-border-radius: 200px;
+    -moz-border-radius: 200px;
+    -ms-border-radius: 200px;
+    -o-border-radius: 200px;
+}
+
+#btnClose
+{
+    margin-top: 20px;
+    width: 80px;
+    height: 50px;
+}
+
+@media (max-width: 1024px)
+{
+    #searchInputContainer
+    {
+        width: 80%;
+    }
+
+    #container
+    {
+        padding: unset;
+        width: 100%;        
+    }
+    
+    #frame
+    {
+        width: 100%;
+        border: unset;
+    }
+
+    #item
+    {
+        width: 100%;
+        border: unset;
+        flex-direction: row;
+        padding-top: 100px;
+    }
+
+    #gamePicture
+    {
+        width: 250px;
+    }
+
+    #gameTitle
+    {
+        font-size: 26px;
+    }
+
+    #gamePrice
+    {
+        font-size: 24px;
+    }
+
+    #itemControlContent
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    #stockData
+    {
+        height: 20px;
+    }
+
+    #details
+    {
+        padding-left: 10px;
+        padding-right: 10px;
+    }    
+}
+
+@media (max-width: 480px)
+{
+    #searchInputContainer
+    {
+        width: 80%;
+    }
+
+    #container
+    {
+        padding: unset;
+        width: 100%;        
+    }
+    
+    #frame
+    {
+        width: 100%;
+        border: unset;
+    }
+
+    #item
+    {
+        width: 100%;
+        border: unset;
+        flex-direction: column;
+        padding-top: 100px;
+    }
+
+    #gamePicture
+    {
+        width: 180px;
+    }
+
+    #gameTitle
+    {
+        font-size: 20px;
+    }
+
+    #gamePrice
+    {
+        font-size: 18px;
+    }
+
+    #itemControlContent
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    #stockData
+    {
+        height: 20px;
+    }
+
+    #details
+    {
+        padding-left: 10px;
+        padding-right: 10px;
+    }    
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OneUp | {% block title %} {% endblock %}</title>
+
+    {% load static %}
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="{% static 'core/images/Logo1UP.ico' %}">
+    <link rel="stylesheet" href="{% static 'core/css/base.css' %}" />    
+    
+  </head>
+  <body>
+    <header class="container">
+      <nav class="main-nav">
+        
+        <a href="{% url 'index' %}">
+          <img id="logo" src="{% static 'core/images/Logo1UP2.jpeg' %}" alt="logo de la marca :D">
+        </a>
+          <span id="navList">            
+            
+            <!-- Explorar--> 
+            <a href="{% url 'explorar' %}"><img class="nav-li-img" src="{% static 'core/images/EXPLORAR-2.jpg' %}" alt="Explorar"  ></a>
+            
+            <!-- Acerca de Nosotros-->
+            <a href="{% url 'acerca' %}"><img class="nav-li-img" src=" {% static 'core/images/NOSOTROS-2.jpg' %}" alt="Acerca de Nosotros"></a>
+
+            <!-- Contacto-->
+            <a href="{% url  'contacto' %}"> <img class="nav-li-img" src="{% static 'core/images/CONTACTO-2.jpg' %}" alt="Contacto" ></a>
+          </span>
+
+          {% block search %} {% endblock %}
+
+      </nav>
+    </header>
+
+    {% block content %}{% endblock %}
+
+    <footer>
+      <div>
+        <p class="neonText">Nuestras Redes</p>
+        <div class="social-icons">
+          <a href="https://www.facebook.com" target="_blank">
+            <i class="fab fa-facebook"></i>
+          </a>
+          <a href="https://www.instagram.com" target="_blank">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://wa.me" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+        <p class="neonText">&copy; Derechos reservados</p>
+      </div>
+    </footer>
+       
+  </body>
+</html>

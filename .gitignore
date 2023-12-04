@@ -1,0 +1,4 @@
+/App/venv/
+/App/core/__pycache__
+/App/core/migrations
+/App/setup/__pycache__
