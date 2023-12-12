@@ -8,20 +8,25 @@ let errorMessageField;
 let dataAccess = new DataAccess();
 
 //#region [ EVENT LISTENER ]
-document.addEventListener('DOMContentLoaded', ()=>
+document.addEventListener('DOMContentLoaded', async ()=>
 {
     errorMessageField = document.getElementById('errorMessage');
-    document.getElementById('formContacto').addEventListener('submit', (e)=>
+
+    btnClose.addEventListener('click', function()
+    {
+        dialog.style.display = '';
+        dialog.close();
+        document.getElementById('name').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('message').value = '';
+    });
+
+    document.getElementById('formContacto').addEventListener('submit', async (e)=>
     {
         e.preventDefault();
         const dialog = document.getElementById('dialog');        
         const btnClose = document.getElementById('btnClose');
     
-        btnClose.addEventListener('click', function()
-        {
-            dialog.style.display = '';
-            dialog.close();        
-        });
         
         nombre = document.getElementById('name').value;
         email = document.getElementById('email').value;
@@ -32,14 +37,25 @@ document.addEventListener('DOMContentLoaded', ()=>
         }
         else
         {
-            errorMessageField.style.visibility = 'hidden';
-            dialog.open = true;        
-            document.getElementById('dialog').style.display = 'flex';
-
+            errorMessageField.style.visibility = 'hidden';            
             // -----
             let payload = {'nombre': nombre, 'email': email, 'mensaje': mensaje}
             console.log(payload);
-            dataAccess.PostData('http://localhost:8000/enviar_contacto', payload);
+            let serverResponse = await dataAccess.PostData('http://localhost:8000/enviar_contacto', payload);
+            
+            let dialogMessage = document.getElementById('dialogMessage');
+
+            if(serverResponse)
+            {
+                dialogMessage.innerHTML = `Muchas gracias por enviarnos sus comentarios. <br> A la brevedad nos pondremos en contacto con usted :)`;
+            }
+            else
+            {
+                dialogMessage.innerHTML = 'No se pudo contactar con el servidor.';
+                console.error('No se pudo contactar con el servidor.');
+            }
+            document.getElementById('dialog').style.display = 'flex';
+            dialog.open = true;
         }
     });
 });

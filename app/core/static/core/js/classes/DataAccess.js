@@ -56,7 +56,7 @@ export class DataAccess
             {
                 const data = await response.json();
                 console.log(data);
-                return `${response.status}: ${response.statusText}`;
+                return true;
             }
             else
             {
