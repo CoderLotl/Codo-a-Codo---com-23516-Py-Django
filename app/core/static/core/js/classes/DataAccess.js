@@ -30,15 +30,47 @@ export class DataAccess
                 {
                     'Content-Type': 'application/json'
                 }
-            });            
+            });                    
             return response.ok? response.json() : `${response.status}: ${response.statusText}`;
         }
         catch (error)
         {
-            console.error('Error fetching data:');
+            console.error('Error fetching data:', error);
             throw error;
         }
     }
+
+    async PostData(url, payload)
+    {
+        try {
+            const response = await fetch(url,
+            {
+                method: 'POST',
+                headers:
+                {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            });
+            if(response.ok)
+            {
+                const data = await response.json();
+                console.log(data);
+                return `${response.status}: ${response.statusText}`;
+            }
+            else
+            {
+                return `${response.status}: ${response.statusText}`;
+            }
+        }
+        catch (error)
+        {
+            console.error('Error posting data:', error);
+            throw error;
+        }
+    }
+
+    // --------------------------------------------------------------
 
     /**
      * Retrieves a whole array of games from a .json file based on the search criteria and a string with the file's path.
@@ -53,13 +85,13 @@ export class DataAccess
         try
         {            
             const data = await this.FetchData(urlTarget);
-        
+            
             if(data !== false)
             {                
                 let filters = this.itemSearchFilters.GetFilter(searchCriteria);
                 filters.valorDolar = valorDolar;
                 let filterFunction = this.FilterData(filters);
-                let result = data.filter(filterFunction);
+                let result = data['juegos'].filter(filterFunction);
                 
                 if(result.length > 0)
                 {                    
@@ -93,7 +125,7 @@ export class DataAccess
 
             if(data !== false)
             {                
-                for(let game of data)
+                for(let game of data['juegos'])
                 {                    
                     if(paramsArray.name == game.name && game.SKU == paramsArray.SKU) // We check for each game if the name and SKU of both the game and params match.
                     {                                                
@@ -120,7 +152,7 @@ export class DataAccess
                 let filter = (item) => {
                     return item.console === gameConsole;
                 };
-                let result = data.filter(filter);
+                let result = data['juegos'].filter(filter);
                 if(result.length > 0)
                 {                    
                     return result;

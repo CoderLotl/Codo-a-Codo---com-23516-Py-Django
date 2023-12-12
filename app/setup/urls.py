@@ -16,7 +16,6 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django.urls import re_path
 from core import views
 
 urlpatterns = [
@@ -26,5 +25,7 @@ urlpatterns = [
     path('acerca', views.acerca, name='acerca'),
     path('explorar', views.explorar, name='explorar'),
     path('explorarConsola', views.explorar_consola, name='explorarConsola'),
+    path('obtener_juegos', views.retornar_juegos, name='retornar_juegos'),
+    path('enviar_contacto', views.enviar_contacto, name='enviar_contacto'),
     path('admin/', admin.site.urls),
 ]

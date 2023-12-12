@@ -1,7 +1,11 @@
+import { DataAccess } from "../classes/DataAccess.js"; // Import of the DataAccess class, which interacts with the JSON file.
+import { urlTarget } from "../config/config.js"; // Import of the config file.
+
 let nombre;
 let email;
 let mensaje;
 let errorMessageField;
+let dataAccess = new DataAccess();
 
 //#region [ EVENT LISTENER ]
 document.addEventListener('DOMContentLoaded', ()=>
@@ -9,8 +13,8 @@ document.addEventListener('DOMContentLoaded', ()=>
     errorMessageField = document.getElementById('errorMessage');
     document.getElementById('formContacto').addEventListener('submit', (e)=>
     {
-        const dialog = document.getElementById('dialog');
-        const btnBuyItem = document.getElementById('buyItem');
+        e.preventDefault();
+        const dialog = document.getElementById('dialog');        
         const btnClose = document.getElementById('btnClose');
     
         btnClose.addEventListener('click', function()
@@ -31,8 +35,12 @@ document.addEventListener('DOMContentLoaded', ()=>
             errorMessageField.style.visibility = 'hidden';
             dialog.open = true;        
             document.getElementById('dialog').style.display = 'flex';
+
+            // -----
+            let payload = {'nombre': nombre, 'email': email, 'mensaje': mensaje}
+            console.log(payload);
+            dataAccess.PostData('http://localhost:8000/enviar_contacto', payload);
         }
-        e.preventDefault();
     });
 });
 //#endregion [ EVENT LISTENER ]

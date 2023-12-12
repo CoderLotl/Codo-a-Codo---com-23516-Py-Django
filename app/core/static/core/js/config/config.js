@@ -1,1 +1,1 @@
-export const urlTarget = 'http://localhost:3000/juegos';
+export const urlTarget = 'http://localhost:8000/obtener_juegos';
