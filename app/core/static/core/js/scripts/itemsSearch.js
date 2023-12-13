@@ -72,7 +72,7 @@ async function SearchGames()
     {
         let imgError = document.createElement('img');
         displayContainer.appendChild(imgError);
-        imgError.src = "{% static 'core/images/error.png' %}";
+        imgError.src = "static/core/images/error.png";
     }
 }
 
